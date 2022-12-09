@@ -22,7 +22,7 @@ const Header = () => {
     },
   ]
   return (
-    <header className="border-solid border-2 shadow-sm">
+    <header className="py-4 border-solid border-2 shadow-sm mb-4">
       <div className="d-flex">
         <ul className="flex justify-end">
           {routesLink.map((data, index) => (

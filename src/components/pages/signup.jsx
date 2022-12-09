@@ -54,7 +54,7 @@ function SignUp() {
   console.log("error state", errorFormState)
   return (
     <div ref={ref} className='transition'>
-      <h2 className="text-lg">Inscription</h2>
+      <h2 className="text-xl mb-2">Inscription</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="email">Email : </label>
