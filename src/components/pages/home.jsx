@@ -25,8 +25,6 @@ function Home() {
     isNewRequest: false
   });
   const stateFetch = useFetch('https://swapi.dev/api/people', state, dispatch);
-  console.log('render')
-  console.log(state);
   return (
     <div className="home">
       <div>
