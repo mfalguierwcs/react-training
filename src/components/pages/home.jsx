@@ -1,6 +1,7 @@
 import { useEffect, useState, useReducer } from 'react'
 import { Link } from 'react-router-dom'
 import PeopleCard from '../peopleCard'
+import useFetch from '../../utils/useFetch';
 
 function Home() {
   const reducer = (state,action) => {
@@ -23,26 +24,7 @@ function Home() {
     isLoading: false,
     isNewRequest: false
   });
-  useEffect(() => {
-    dispatch({type: 'setIsLoading', data: true});
-    fetch('https://swapi.dev/api/people')
-      .then((response) => {
-        dispatch({type: 'setIsLoading', data: false});
-        return response.json()
-      })
-      .then((data) => {
-        if (data.results.length > 0) {
-          return dispatch({type: 'setData', data: data});
-        } else {
-          dispatch({type: 'setIsLoading', data: false});
-          return dispatch({type: 'setError', data: 'Pas de données trouvées'});
-        }
-      })
-      .catch(() => {
-        dispatch({type: 'setIsLoading', data: false});
-        return dispatch({type: 'setError', data: 'Une erreur est survenu'});
-      })
-  }, [state.isNewRequest])
+  const stateFetch = useFetch('https://swapi.dev/api/people', state, dispatch);
   console.log('render')
   console.log(state);
   return (
