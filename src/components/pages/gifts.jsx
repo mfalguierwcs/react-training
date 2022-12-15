@@ -15,7 +15,7 @@ function Gifts() {
             idea: "Mob"
         }
     ]
-    const [giftsState, setGiftsState] = useState(gifts);
+    const [giftsState] = useState(gifts);
     const addGift = () => {
 
     }

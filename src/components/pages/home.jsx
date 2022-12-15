@@ -9,6 +9,7 @@ function Home() {
   const [isNewRequest, setIsNewRequest] = useState(false)
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_FAKE_API_KEY);
     setIsLoading(true)
     fetch('https://swapi.dev/api/people')
       .then((response) => {
@@ -30,6 +31,7 @@ function Home() {
   }, [isNewRequest])
   return (
     <div className="home">
+      
       <div>
         {isLoading && <div>Loading</div>}
         {data && (
