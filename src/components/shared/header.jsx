@@ -17,6 +17,10 @@ const Header = () => {
       label: 'About',
     },
     {
+      path: '/gifts',
+      label: 'Cadeaux de noël',
+    },
+    {
       path: '/signup',
       label: 'Inscription',
     },

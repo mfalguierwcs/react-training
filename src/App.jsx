@@ -9,8 +9,23 @@ import Planets from './components/pages/categories/planets'
 import Header from './components/shared/header'
 import Signup from './components/pages/signup'
 import People from './components/pages/people'
+import HelpWilder from './components/shared/helpWilder'
+import { useState } from 'react'
+import { wilders, getRandomWilder } from './utils/utils'
+import Gifts from './components/pages/gifts'
 
 function App() {
+    const [wilderState, setWilderState] = useState("")
+    const [wilderListeState, setWilderListeState] = useState(wilders)
+    const changeWilder = () => {
+        const randomWilder = getRandomWilder(wilderListeState)
+        setWilderState(randomWilder);
+        setWilderListeState(wilderListeState.filter(wilder => wilder !== randomWilder))
+        if (wilderListeState.length === 1) {
+            setWilderListeState(wilders)
+        }
+    }
+    console.log(wilderListeState)
   return (
     <div className="App">
       <Header />
@@ -23,8 +38,10 @@ function App() {
           <Route path="/categories/planets" element={<Planets />} />
         </Route>
         <Route path="signup" element={<Signup />} />
+        <Route path="/gifts" element={<Gifts />} />
         <Route path="/*" element={<Navigate replace to="/" />} />
       </Routes>
+      <HelpWilder wilder={wilderState} handleClickCallback={changeWilder} />
     </div>
   )
 }

@@ -28,7 +28,6 @@ function Home() {
         setError('Une erreur est survenu')
       })
   }, [isNewRequest])
-  console.log('render')
   return (
     <div className="home">
       <div>
